@@ -1,0 +1,10 @@
+/* ========================
+   HOME PAGE LAYOUT
+   ======================== */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-xl);
+}
