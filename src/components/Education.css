@@ -85,4 +85,34 @@
     .education {
         padding: var(--space-lg) var(--space-md);
     }
+
+    .education-card__action {
+        align-self: center;
+    }
+}
+
+/* ---- Clickable Card ---- */
+.education-card--clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.education-card--clickable:hover {
+    border-color: #f59e0b40;
+    box-shadow: 0 4px 24px rgba(245, 158, 11, 0.1);
+}
+
+.education-card__action {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: gap var(--transition-fast);
+}
+
+.education-card--clickable:hover .education-card__action {
+    gap: 12px;
 }

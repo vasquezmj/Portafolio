@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCertificate, FaCalendarAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { FaGraduationCap, FaCertificate, FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 import './Education.css';
 
 const educationData = [
     {
         icon: <FaGraduationCap />,
         title: 'Ingeniería en Desarrollo de Software',
-        institution: 'Universidad de la Innovación',
-        period: '2020 – 2024',
+        institution: 'Universidad Fidélitas',
+        period: '2024 – 2027',
         description:
             'Formación integral en desarrollo de software, bases de datos, redes, métodos y técnicas de gestión de proyectos con metodologías ágiles.',
         color: '#0D6EFD',
@@ -15,10 +16,10 @@ const educationData = [
     {
         icon: <FaGraduationCap />,
         title: 'Especialización en Diseño y Desarrollo Web',
-        institution: 'Universidad de la Innovación',
-        period: '2024 – 2025',
+        institution: 'Universidad Fidélitas',
+        period: '2024',
         description:
-            'Especialización con énfasis en UX/UI, desarrollo frontend con React, y técnicas de optimización de rendimiento web.',
+            'Especialización con énfasis en UX/UI, desarrollo frontend, y técnicas de optimización de rendimiento web.',
         color: '#22c55e',
     },
     {
@@ -27,8 +28,9 @@ const educationData = [
         institution: 'Plataformas online',
         period: 'Actualización continua',
         description:
-            'Certificaciones en React, JavaScript, Bootstrap, UX Design y metodologías ágiles de desarrollo.',
+            'Certificaciones en programacion, seguridad informatica, soporte tecnico y metodologías ágiles de desarrollo.',
         color: '#f59e0b',
+        clickable: true,
     },
 ];
 
@@ -42,6 +44,8 @@ const cardVariants = {
 };
 
 function Education() {
+    const navigate = useNavigate();
+
     return (
         <section id="education" className="education section">
             <motion.h2
@@ -58,12 +62,14 @@ function Education() {
                 {educationData.map((item, index) => (
                     <motion.div
                         key={index}
-                        className="education-card card-dark"
+                        className={`education-card card-dark ${item.clickable ? 'education-card--clickable' : ''}`}
                         custom={index}
                         variants={cardVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: '-40px' }}
+                        onClick={item.clickable ? () => navigate('/certificados') : undefined}
+                        style={item.clickable ? { cursor: 'pointer' } : undefined}
                     >
                         <div className="education-card__icon-wrapper" style={{ background: `${item.color}20`, color: item.color }}>
                             {item.icon}
@@ -73,10 +79,17 @@ function Education() {
                             <p className="education-card__institution">{item.institution}</p>
                             <p className="education-card__description">{item.description}</p>
                         </div>
-                        <div className="education-card__period" style={{ background: `${item.color}15`, color: item.color }}>
-                            <FaCalendarAlt />
-                            <span>{item.period}</span>
-                        </div>
+                        {item.clickable ? (
+                            <div className="education-card__action" style={{ color: item.color }}>
+                                <span>Ver todos</span>
+                                <FaArrowRight />
+                            </div>
+                        ) : (
+                            <div className="education-card__period" style={{ background: `${item.color}15`, color: item.color }}>
+                                <FaCalendarAlt />
+                                <span>{item.period}</span>
+                            </div>
+                        )}
                     </motion.div>
                 ))}
             </div>

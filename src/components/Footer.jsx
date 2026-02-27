@@ -12,7 +12,7 @@ function Footer() {
                 </p>
                 <div className="footer__links">
                     <a
-                        href="https://github.com/mauriciovasquez"
+                        href="https://github.com/vasquezmj"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="footer__link"

@@ -10,7 +10,7 @@ const projectsData = [
         description:
             'Descripción del proyecto: un ejemplo de solución web completa que resuelve una necesidad real. Construcción de interfaz con enfoque en usabilidad y rendimiento.',
         technologies: ['React', 'JavaScript', 'CSS'],
-        github: 'https://github.com/mauriciovasquez',
+        github: 'https://github.com/vasquezmj',
         demo: '#',
     },
     {
@@ -19,7 +19,7 @@ const projectsData = [
         description:
             'Descripción del proyecto: una aplicación diseñada para optimizar flujos de trabajo. Integración de componentes reutilizables y gestión eficiente del estado.',
         technologies: ['React', 'Bootstrap', 'HTML'],
-        github: 'https://github.com/mauriciovasquez',
+        github: 'https://github.com/vasquezmj',
         demo: '#',
     },
     {
@@ -28,7 +28,7 @@ const projectsData = [
         description:
             'Descripción del proyecto: plataforma enfocada en la experiencia de usuario. Responsive design, accesibilidad y animaciones sutiles para una navegación fluida.',
         technologies: ['JavaScript', 'CSS', 'React'],
-        github: 'https://github.com/mauriciovasquez',
+        github: 'https://github.com/vasquezmj',
         demo: '#',
     },
 ];
