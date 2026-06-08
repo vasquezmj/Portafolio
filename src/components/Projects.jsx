@@ -1,35 +1,37 @@
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import heroIllustration from '../assets/images/hero-illustration.png';
+import portafolioImg from '../assets/images/portafolio-preview.png';
+import sellcontrolImg from '../assets/images/sellcontrol-pos.png';
+import mamochiImg from '../assets/images/mamochi-preview.png';
 import './Projects.css';
 
 const projectsData = [
     {
-        name: 'Nombre',
-        image: heroIllustration,
+        name: 'SellControl-Sistema POS',
+        image: sellcontrolImg,
         description:
-            'Descripción del proyecto: un ejemplo de solución web completa que resuelve una necesidad real. Construcción de interfaz con enfoque en usabilidad y rendimiento.',
-        technologies: ['React', 'JavaScript', 'CSS'],
-        github: 'https://github.com/vasquezmj',
-        demo: '#',
+            'Sistema de punto de venta completo con gestión de inventario, registro de ventas en tiempo real, control de usuarios y generación de reportes detallados.',
+        technologies: ['Java', 'SQLite', 'JavaFX'],
+        github: 'https://github.com/vasquezmj/POS_punto_venta',
+        demo: null,
     },
     {
-        name: 'Nombre',
-        image: heroIllustration,
+        name: 'Mamochi',
+        image: mamochiImg,
         description:
-            'Descripción del proyecto: una aplicación diseñada para optimizar flujos de trabajo. Integración de componentes reutilizables y gestión eficiente del estado.',
-        technologies: ['React', 'Bootstrap', 'HTML'],
-        github: 'https://github.com/vasquezmj',
-        demo: '#',
+            'Landing page moderna y responsive para la marca MAMOCHI. Diseño atractivo con animaciones fluidas, secciones interactivas y una experiencia de usuario optimizada.',
+        technologies: ['HTML', 'CSS', 'JavaScript'],
+        github: 'https://github.com/vasquezmj/landing_MAMOCHI',
+        demo: 'https://mamochi.vercel.app/',
     },
     {
-        name: 'Nombre',
-        image: heroIllustration,
+        name: 'Portafolio Personal',
+        image: portafolioImg,
         description:
-            'Descripción del proyecto: plataforma enfocada en la experiencia de usuario. Responsive design, accesibilidad y animaciones sutiles para una navegación fluida.',
-        technologies: ['JavaScript', 'CSS', 'React'],
-        github: 'https://github.com/vasquezmj',
-        demo: '#',
+            'Portafolio web profesional con diseño moderno y dark theme. Incluye secciones de proyectos, habilidades, formación académica y certificaciones con visualización de PDFs.',
+        technologies: ['React', 'CSS', 'JavaScript', 'Vite'],
+        github: 'https://github.com/vasquezmj/Portafolio',
+        demo: null,
     },
 ];
 

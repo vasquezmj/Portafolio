@@ -35,17 +35,15 @@ function Hero() {
                     <h2 className="hero__subtitle">Un poco sobre mí</h2>
                     <p className="hero__description">
                         Desarrollador de software y técnico en soporte TI con pasión por crear
-                        experiencias digitales que realmente funcionen. Me especializo en construir
-                        interfaces modernas con <strong>React</strong>, <strong>JavaScript</strong> y
-                        tecnologías frontend de última generación.
+                        experiencias digitales que realmente funcionen. Me especializo en <strong>construir</strong> interfaces modernas con tecnologías de última generación.
                     </p>
                     <p className="hero__description">
-                        Combino mis habilidades en desarrollo web con una base sólida en
+                        Combino mis habilidades en <strong>desarrollo</strong> con una base sólida en
                         infraestructura tecnológica, lo que me permite entender los proyectos
-                        de principio a fin — desde la arquitectura hasta cada pixel en pantalla.
+                        de principio a fin desde la arquitectura hasta cada pixel en pantalla.
                     </p>
                     <p className="hero__description hero__description--highlight">
-                        💡 Siempre buscando el siguiente reto que me permita crecer y aportar valor real.
+                        Siempre buscando el siguiente reto que me permita crecer y aportar valor real.
                     </p>
                 </div>
                 <div className="hero__image-col">

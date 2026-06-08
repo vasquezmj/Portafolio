@@ -1,19 +1,19 @@
 import { motion } from 'framer-motion';
 import {
-    FaUsers, FaTools, FaCode, FaPalette,
+    FaDatabase, FaTools, FaCode, FaPalette,
 } from 'react-icons/fa';
 import './Skills.css';
 
 const skillCategories = [
     {
-        title: 'Soft Skills',
-        icon: <FaUsers />,
+        title: 'Datos',
+        icon: <FaDatabase />,
         skills: [
-            'Comunicación efectiva',
-            'Trabajo en equipo',
-            'Pensamiento crítico',
-            'Resolución de problemas',
-            'Responsabilidad',
+            'Power BI',
+            'MySQL',
+            'Oracle Database',
+            'PostgreSQL',
+            'MongoDB',
         ],
     },
     {
@@ -23,7 +23,7 @@ const skillCategories = [
             'Visual Studio Code',
             'Git & GitHub',
             'Figma',
-            'Chrome DevTools',
+            'FlutterFlow',
             'Terminal / CLI',
         ],
     },
@@ -33,16 +33,15 @@ const skillCategories = [
         skills: [
             'React.js',
             'JavaScript (ES6+)',
-            'HTML5 & CSS3',
-            'Bootstrap',
-            'Responsive Design',
+            'Python',
+            'Java',
+            'PHP',
         ],
     },
     {
-        title: 'UX/UI Skills',
+        title: 'Diseño UX/UI',
         icon: <FaPalette />,
         skills: [
-            'Diseño centrado en usuario',
             'Wireframing & Prototyping',
             'Jerarquía visual',
             'Diseño responsive',
