@@ -17,7 +17,7 @@ function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Form submission logic (can be connected to a backend or service)
-        const mailtoLink = `mailto:mvasquez10@gmail.com?subject=Contacto desde portafolio - ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+        const mailtoLink = `mailto:vasquezmj22@gmail.com?subject=Contacto desde portafolio - ${formData.name}&body=${encodeURIComponent(formData.message)}`;
         window.open(mailtoLink, '_blank');
     };
 
@@ -52,7 +52,7 @@ function Contact() {
                             <span className="contact__detail-icon"><FaEnvelope /></span>
                             <div>
                                 <span className="contact__detail-label">Email</span>
-                                <a href="mailto:mvasquez10@gmail.com" className="contact__detail-value">
+                                <a href="mailto:vasquezmj22@gmail.com" className="contact__detail-value">
                                     vasquezmj22@gmail.com
                                 </a>
                             </div>
