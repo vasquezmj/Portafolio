@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14283D" />
+      <stop offset="100%" stop-color="#234567" />
+    </linearGradient>
+    <linearGradient id="goldStrip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B89138" />
+      <stop offset="50%" stop-color="#D4B259" />
+      <stop offset="100%" stop-color="#B89138" />
+    </linearGradient>
+  </defs>
+
+  <!-- Parchment Background -->
+  <rect width="800" height="450" fill="#F7F5F0" />
+
+  <!-- Top Navbar (#14283D) -->
+  <rect width="800" height="44" fill="#14283D" />
+  <rect x="28" y="13" width="18" height="18" rx="3" fill="#B89138" />
+  <text x="54" y="27" fill="#FFFFFF" font-family="Georgia, serif" font-size="15" font-weight="bold">Biblioteca Pública</text>
+  <text x="215" y="26" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="11">Inicio</text>
+  <text x="262" y="26" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="11">Catálogo</text>
+  <text x="328" y="26" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="11">Mis préstamos</text>
+  <text x="422" y="26" fill="#D4B259" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Gestión</text>
+  <rect x="650" y="12" width="120" height="20" rx="4" fill="#234567" />
+  <text x="662" y="25" fill="#F7F5F0" font-family="system-ui, sans-serif" font-size="10">ES · EN · FR · PT</text>
+
+  <!-- Gold Strip (.franja-dorada) -->
+  <rect y="44" width="800" height="4" fill="url(#goldStrip)" />
+
+  <!-- Staff Subnav (.staff-subnav) -->
+  <rect y="48" width="800" height="28" fill="#EAE5DA" />
+  <text x="28" y="66" fill="#14283D" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">MÓDULO BIBLIOTECARIO:</text>
+  <text x="172" y="66" fill="#234567" font-family="system-ui, sans-serif" font-size="10">Panel</text>
+  <text x="218" y="66" fill="#234567" font-family="system-ui, sans-serif" font-size="10">Circulación y Préstamos</text>
+  <text x="358" y="66" fill="#234567" font-family="system-ui, sans-serif" font-size="10">Inventario Libros</text>
+  <text x="462" y="66" fill="#234567" font-family="system-ui, sans-serif" font-size="10">Consultas</text>
+
+  <!-- Hero Section (.hero-biblioteca) -->
+  <rect y="76" width="800" height="145" fill="url(#heroGrad)" />
+  <rect y="218" width="800" height="3" fill="#B89138" />
+
+  <rect x="28" y="92" width="165" height="18" rx="3" fill="#B89138" />
+  <text x="36" y="104" fill="#14283D" font-family="system-ui, sans-serif" font-size="9" font-weight="bold">CATÁLOGO BIBLIOGRÁFICO PÚBLICO</text>
+
+  <text x="28" y="136" fill="#FFFFFF" font-family="Georgia, serif" font-size="24" font-weight="bold">Encuentra tu próxima lectura</text>
+  <text x="28" y="156" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="11">Explora nuestra colección literaria, científica e histórica con reserva en línea.</text>
+
+  <!-- Search Input Mock -->
+  <rect x="28" y="170" width="380" height="32" rx="4" fill="#FFFFFF" />
+  <text x="42" y="190" fill="#6C757D" font-family="system-ui, sans-serif" font-size="11">Buscar por título, autor o ISBN...</text>
+  <rect x="416" y="170" width="90" height="32" rx="4" fill="#1E6B43" />
+  <text x="442" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Buscar</text>
+
+  <!-- Hero Stats Box -->
+  <rect x="545" y="96" width="225" height="106" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" />
+  <text x="565" y="132" fill="#D4B259" font-family="Georgia, serif" font-size="24" font-weight="bold">6</text>
+  <text x="565" y="148" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="10">Títulos en catálogo</text>
+  <line x1="655" y1="108" x2="655" y2="158" stroke="rgba(255,255,255,0.2)" />
+  <text x="672" y="132" fill="#D4B259" font-family="Georgia, serif" font-size="24" font-weight="bold">25</text>
+  <text x="672" y="148" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="10">Ejemplares disp.</text>
+  <text x="565" y="182" fill="#EAE5DA" font-family="system-ui, sans-serif" font-size="9">Préstamo por 14 días • Renovable 2 veces</text>
+
+  <!-- Section Header: Obras Destacadas -->
+  <text x="28" y="250" fill="#14283D" font-family="Georgia, serif" font-size="16" font-weight="bold">Obras Destacadas</text>
+  <rect x="28" y="256" width="48" height="3" fill="#B89138" />
+
+  <!-- 4 Book Cards Grid -->
+  <!-- Card 1 -->
+  <g transform="translate(28, 270)">
+    <rect width="174" height="158" rx="6" fill="#FFFFFF" stroke="#E2DDD3" />
+    <rect x="10" y="10" width="154" height="72" rx="4" fill="#EAE5DA" />
+    <rect x="64" y="16" width="46" height="60" rx="2" fill="#14283D" stroke="#B89138" stroke-width="1.5" />
+    <text x="71" y="42" fill="#D4B259" font-family="Georgia, serif" font-size="6">GABRIEL</text>
+    <text x="69" y="52" fill="#FFFFFF" font-family="Georgia, serif" font-size="6" font-weight="bold">CIEN AÑOS</text>
+    <rect x="10" y="90" width="88" height="14" rx="3" fill="#234567" />
+    <text x="15" y="100" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Novela Contemp.</text>
+    <text x="10" y="118" fill="#14283D" font-family="Georgia, serif" font-size="11" font-weight="bold">Cien años de soledad</text>
+    <text x="10" y="131" fill="#5A6570" font-family="system-ui, sans-serif" font-size="9">G. García Márquez</text>
+    <rect x="10" y="138" width="52" height="14" rx="3" fill="#E6F4EA" />
+    <text x="16" y="148" fill="#1E6B43" font-family="system-ui, sans-serif" font-size="8" font-weight="bold">4 disp.</text>
+    <rect x="108" y="136" width="56" height="16" rx="3" fill="#14283D" />
+    <text x="118" y="147" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Ver ficha</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(218, 270)">
+    <rect width="174" height="158" rx="6" fill="#FFFFFF" stroke="#E2DDD3" />
+    <rect x="10" y="10" width="154" height="72" rx="4" fill="#EAE5DA" />
+    <rect x="64" y="16" width="46" height="60" rx="2" fill="#1B365D" stroke="#B89138" stroke-width="1.5" />
+    <text x="72" y="42" fill="#D4B259" font-family="Georgia, serif" font-size="6">CARL SAGAN</text>
+    <text x="73" y="53" fill="#FFFFFF" font-family="Georgia, serif" font-size="7" font-weight="bold">COSMOS</text>
+    <rect x="10" y="90" width="94" height="14" rx="3" fill="#234567" />
+    <text x="15" y="100" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Ciencia y Divulg.</text>
+    <text x="10" y="118" fill="#14283D" font-family="Georgia, serif" font-size="11" font-weight="bold">Cosmos</text>
+    <text x="10" y="131" fill="#5A6570" font-family="system-ui, sans-serif" font-size="9">Carl Sagan</text>
+    <rect x="10" y="138" width="52" height="14" rx="3" fill="#E6F4EA" />
+    <text x="16" y="148" fill="#1E6B43" font-family="system-ui, sans-serif" font-size="8" font-weight="bold">3 disp.</text>
+    <rect x="108" y="136" width="56" height="16" rx="3" fill="#14283D" />
+    <text x="118" y="147" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Ver ficha</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(408, 270)">
+    <rect width="174" height="158" rx="6" fill="#FFFFFF" stroke="#E2DDD3" />
+    <rect x="10" y="10" width="154" height="72" rx="4" fill="#EAE5DA" />
+    <rect x="64" y="16" width="46" height="60" rx="2" fill="#5B2C2C" stroke="#B89138" stroke-width="1.5" />
+    <text x="72" y="42" fill="#D4B259" font-family="Georgia, serif" font-size="6">YUVAL NOAH</text>
+    <text x="73" y="53" fill="#FFFFFF" font-family="Georgia, serif" font-size="7" font-weight="bold">SAPIENS</text>
+    <rect x="10" y="90" width="88" height="14" rx="3" fill="#234567" />
+    <text x="15" y="100" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Historia Universal</text>
+    <text x="10" y="118" fill="#14283D" font-family="Georgia, serif" font-size="11" font-weight="bold">Sapiens: De animales</text>
+    <text x="10" y="131" fill="#5A6570" font-family="system-ui, sans-serif" font-size="9">Yuval Noah Harari</text>
+    <rect x="10" y="138" width="52" height="14" rx="3" fill="#E6F4EA" />
+    <text x="16" y="148" fill="#1E6B43" font-family="system-ui, sans-serif" font-size="8" font-weight="bold">5 disp.</text>
+    <rect x="108" y="136" width="56" height="16" rx="3" fill="#14283D" />
+    <text x="118" y="147" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Ver ficha</text>
+  </g>
+
+  <!-- Card 4 -->
+  <g transform="translate(598, 270)">
+    <rect width="174" height="158" rx="6" fill="#FFFFFF" stroke="#E2DDD3" />
+    <rect x="10" y="10" width="154" height="72" rx="4" fill="#EAE5DA" />
+    <rect x="64" y="16" width="46" height="60" rx="2" fill="#1E4D3B" stroke="#B89138" stroke-width="1.5" />
+    <text x="70" y="42" fill="#D4B259" font-family="Georgia, serif" font-size="6">CERVANTES</text>
+    <text x="69" y="53" fill="#FFFFFF" font-family="Georgia, serif" font-size="6.5" font-weight="bold">EL QUIJOTE</text>
+    <rect x="10" y="90" width="88" height="14" rx="3" fill="#234567" />
+    <text x="15" y="100" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Literatura Clásica</text>
+    <text x="10" y="118" fill="#14283D" font-family="Georgia, serif" font-size="11" font-weight="bold">Don Quijote de la M.</text>
+    <text x="10" y="131" fill="#5A6570" font-family="system-ui, sans-serif" font-size="9">Miguel de Cervantes</text>
+    <rect x="10" y="138" width="52" height="14" rx="3" fill="#E6F4EA" />
+    <text x="16" y="148" fill="#1E6B43" font-family="system-ui, sans-serif" font-size="8" font-weight="bold">5 disp.</text>
+    <rect x="108" y="136" width="56" height="16" rx="3" fill="#14283D" />
+    <text x="118" y="147" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="8">Ver ficha</text>
+  </g>
+</svg>

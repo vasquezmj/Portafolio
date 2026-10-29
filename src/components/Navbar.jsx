@@ -1,74 +1,117 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
-import { HiOutlineUser, HiOutlineBriefcase, HiOutlineLightBulb, HiOutlineAcademicCap, HiOutlineMail, HiOutlineEye } from 'react-icons/hi';
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa';
+import {
+  HiOutlineUser,
+  HiOutlineBriefcase,
+  HiOutlineLightBulb,
+  HiOutlineAcademicCap,
+  HiOutlineMail,
+  HiOutlineEye,
+  HiOutlineSparkles,
+  HiOutlineOfficeBuilding,
+  HiOutlineBadgeCheck,
+} from 'react-icons/hi';
 import profilePhoto from '../assets/images/profile-photo.png';
 import './Navbar.css';
 
+const ROLES = [
+  'Desarrollador de Software',
+  'Soluciones Web',
+  'Análisis de Datos & TI',
+];
+
 const navLinks = [
-  { id: 'about', label: 'Sobre mí', icon: <HiOutlineUser /> },
-  { id: 'projects', label: 'Proyectos', icon: <HiOutlineBriefcase /> },
-  { id: 'skills', label: 'Habilidades', icon: <HiOutlineLightBulb /> },
-  { id: 'education', label: 'Educación', icon: <HiOutlineAcademicCap /> },
-  { id: 'contact', label: 'Contacto', icon: <HiOutlineMail /> },
+  { id: 'about', label: 'Inicio & Perfil', icon: <HiOutlineUser />, type: 'section' },
+  { id: 'demos', label: 'Showroom Demos', icon: <HiOutlineSparkles />, badge: 'En vivo', type: 'section' },
+  { id: 'projects', label: 'Proyectos', icon: <HiOutlineBriefcase />, type: 'section' },
+  { id: 'experience', label: 'Experiencia', icon: <HiOutlineOfficeBuilding />, type: 'section' },
+  { id: 'skills', label: 'Habilidades', icon: <HiOutlineLightBulb />, type: 'section' },
+  { id: 'education', label: 'Educación', icon: <HiOutlineAcademicCap />, type: 'section' },
+  { id: '/certificados', label: 'Certificados (12)', icon: <HiOutlineBadgeCheck />, type: 'route' },
+  { id: 'contact', label: 'Contacto & Cotizar', icon: <HiOutlineMail />, type: 'section' },
 ];
 
 const socialLinks = [
   { icon: <FaGithub />, href: 'https://github.com/vasquezmj', label: 'GitHub' },
   { icon: <FaLinkedinIn />, href: 'https://www.linkedin.com/in/mauricio-vasquez-lor%C3%ADa', label: 'LinkedIn' },
+  { icon: <FaWhatsapp />, href: 'https://wa.me/50670037962?text=Hola%20Mauricio%2C%20vi%20tu%20portafolio%20web%20y%20me%20gustar%C3%ADa%20conversar.', label: 'WhatsApp' },
   { icon: <FaEnvelope />, href: 'mailto:vasquezmj22@gmail.com', label: 'Email' },
 ];
 
 function Navbar() {
-  const [activeLink, setActiveLink] = useState('about');
+  const [activeSection, setActiveSection] = useState('about');
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const isHome = location.pathname === '/';
+  const activeLink =
+    location.pathname === '/certificados'
+      ? '/certificados'
+      : location.pathname.startsWith('/demos')
+        ? 'demos'
+        : activeSection;
 
   // Typewriter effect for role text
-  const roles = ['Desarrollador de Software', 'Soporte TI'];
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentRole = roles[roleIndex];
-    let timeout;
+    const currentRole = ROLES[roleIndex];
+    let delay = isDeleting ? 35 : 75;
 
     if (!isDeleting && displayText === currentRole) {
-      // Pause before deleting
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
+      delay = 2200;
     } else if (isDeleting && displayText === '') {
-      // Switch to next role
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    } else {
-      const speed = isDeleting ? 40 : 80;
-      timeout = setTimeout(() => {
+      delay = 180;
+    }
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayText === currentRole) {
+        setIsDeleting(true);
+      } else if (isDeleting && displayText === '') {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % ROLES.length);
+      } else {
         setDisplayText(
           isDeleting
             ? currentRole.substring(0, displayText.length - 1)
             : currentRole.substring(0, displayText.length + 1)
         );
-      }, speed);
-    }
+      }
+    }, delay);
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, roleIndex]);
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
 
   // Scroll spy: only active on home page
   useEffect(() => {
     if (!isHome) return;
 
-    const sectionIds = navLinks.map((link) => link.id);
+    const sectionIds = navLinks
+      .filter((link) => link.type === 'section')
+      .map((link) => link.id);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
+            setActiveSection(entry.target.id);
           }
         });
       },
@@ -86,39 +129,81 @@ function Navbar() {
     return () => observer.disconnect();
   }, [isHome]);
 
-  const handleNav = (id) => {
+  const handleNav = (link) => {
     setMobileOpen(false);
+
+    if (link.type === 'route') {
+      navigate(link.id);
+      return;
+    }
+
     if (isHome) {
-      setActiveLink(id);
-      const el = document.getElementById(id);
+      setActiveSection(link.id);
+      const el = document.getElementById(link.id);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     } else {
-      // Navigate to home, then scroll after page load
       navigate('/');
       setTimeout(() => {
-        const el = document.getElementById(id);
+        const el = document.getElementById(link.id);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        setActiveLink(id);
-      }, 100);
+        setActiveSection(link.id);
+      }, 120);
     }
   };
 
   return (
     <>
-      {/* Mobile Toggle */}
-      <button
-        className="mobile-toggle"
-        onClick={() => setMobileOpen(!mobileOpen)}
-        aria-label="Toggle navigation"
-      >
-        {mobileOpen ? <FaTimes /> : <FaBars />}
-      </button>
+      <a href="#main-content" className="skip-link">
+        Saltar al contenido principal
+      </a>
 
-      {/* Overlay for mobile */}
+      {/* Sticky Top Header Bar for Tablet & Mobile (<= 1080px) */}
+      <header className="mobile-topbar">
+        <button
+          type="button"
+          className="mobile-topbar__brand"
+          onClick={() => handleNav({ id: 'about', type: 'section' })}
+        >
+          <img
+            src={profilePhoto}
+            alt=""
+            className="mobile-topbar__avatar"
+            width="36"
+            height="36"
+          />
+          <div className="mobile-topbar__text">
+            <strong>Mauricio Vásquez</strong>
+            <span>Desarrollador & TI</span>
+          </div>
+        </button>
+
+        <div className="mobile-topbar__actions">
+          <button
+            type="button"
+            className="mobile-topbar__demos-btn"
+            onClick={() => handleNav({ id: 'demos', type: 'section' })}
+          >
+            <HiOutlineSparkles aria-hidden="true" />
+            <span>Demos</span>
+          </button>
+
+          <button
+            type="button"
+            className="mobile-toggle"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
+          </button>
+        </div>
+      </header>
+
+      {/* Overlay for mobile & tablet */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -133,6 +218,7 @@ function Navbar() {
 
       <nav
         className={`sidebar ${mobileOpen ? 'sidebar--open' : ''}`}
+        aria-label="Navegación principal"
       >
         {/* Profile Section */}
         <div className="sidebar__profile">
@@ -141,35 +227,54 @@ function Navbar() {
               src={profilePhoto}
               alt="Mauricio Vásquez Loría"
               className="sidebar__avatar"
+              width="96"
+              height="96"
+              fetchPriority="high"
             />
-            <span className="sidebar__status-dot" />
+            <span
+              className="sidebar__status-dot"
+              title="Disponible para proyectos y oportunidades laborales"
+            />
           </div>
-          <h3 className="sidebar__name">Mauricio Vásquez</h3>
-          <p className="sidebar__role">
-            {displayText}<span className="sidebar__cursor">|</span>
+          <h2 className="sidebar__name">Mauricio Vásquez</h2>
+          <p className="sidebar__role" aria-live="polite">
+            {displayText}
+            <span className="sidebar__cursor" aria-hidden="true">|</span>
           </p>
+          <span className="sidebar__availability">
+            <span className="sidebar__availability-dot" aria-hidden="true" />
+            Disponible · Cartago, CR
+          </span>
         </div>
 
         {/* CTA Button */}
-        <a
-          href="/Mauricio-Vasquez-CV.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-accent sidebar__cta"
-        >
-          <HiOutlineEye /> Ver CV
-        </a>
+        <div className="sidebar__cta-group">
+          <a
+            href="/Mauricio-Vasquez-CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-accent sidebar__cta"
+          >
+            <HiOutlineEye aria-hidden="true" /> Ver Currículum (PDF)
+          </a>
+        </div>
 
         {/* Navigation Links */}
         <ul className="sidebar__nav">
           {navLinks.map((link) => (
             <li key={link.id}>
               <button
+                type="button"
                 className={`sidebar__nav-link ${activeLink === link.id ? 'sidebar__nav-link--active' : ''}`}
-                onClick={() => handleNav(link.id)}
+                onClick={() => handleNav(link)}
               >
-                <span className="sidebar__nav-icon">{link.icon}</span>
-                {link.label}
+                <span className="sidebar__nav-icon" aria-hidden="true">
+                  {link.icon}
+                </span>
+                <span className="sidebar__nav-label">{link.label}</span>
+                {link.badge && (
+                  <span className="sidebar__nav-badge">{link.badge}</span>
+                )}
               </button>
             </li>
           ))}
@@ -185,6 +290,7 @@ function Navbar() {
               rel="noopener noreferrer"
               className="sidebar__social-link"
               aria-label={social.label}
+              title={social.label}
             >
               {social.icon}
             </a>

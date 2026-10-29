@@ -5,7 +5,7 @@
 .skills {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
-    padding: var(--space-xl);
+    padding: clamp(16px, 3.5vw, 44px);
     border: 1px solid var(--border-color);
 }
 
@@ -17,13 +17,13 @@
 
 /* ---- Skill Card ---- */
 .skill-card {
-    padding: var(--space-md);
+    padding: clamp(16px, 2.5vw, 24px);
 }
 
 .skill-card__header {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    gap: 10px;
     margin-bottom: var(--space-sm);
     padding-bottom: var(--space-xs);
     border-bottom: 1px solid var(--border-color);
@@ -37,13 +37,14 @@
     height: 36px;
     border-radius: var(--radius-sm);
     background: rgba(13, 110, 253, 0.12);
-    color: var(--accent);
+    color: var(--accent-hover);
     font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .skill-card__title {
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
@@ -57,18 +58,20 @@
 
 .skill-card__item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
-    font-size: 0.83rem;
+    font-size: 0.84rem;
     color: var(--text-secondary);
     font-family: var(--font-body);
+    line-height: 1.45;
 }
 
 .skill-card__bullet {
     width: 6px;
     height: 6px;
+    margin-top: 7px;
     border-radius: var(--radius-full);
-    background: var(--accent);
+    background: var(--accent-hover);
     flex-shrink: 0;
 }
 
@@ -79,6 +82,7 @@
     }
 
     .skills {
-        padding: var(--space-lg) var(--space-md);
+        padding: 18px 14px;
+        border-radius: var(--radius-lg);
     }
 }

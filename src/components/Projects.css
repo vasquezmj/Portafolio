@@ -5,29 +5,161 @@
 .projects {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
-    padding: var(--space-xl);
+    padding: clamp(16px, 3.5vw, 44px);
     border: 1px solid var(--border-color);
 }
 
 .projects__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
-    align-items: start;
+    align-items: stretch;
 }
 
-@media (max-width: 1200px) {
+/* ---- Native Case Study Modal Dialog ---- */
+.case-study-dialog {
+    margin: auto;
+    max-width: 680px;
+    width: calc(100% - 24px);
+    max-height: 90dvh;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-xl);
+    padding: 0;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+    overscroll-behavior: contain;
+}
+
+.case-study-dialog::backdrop {
+    background-color: rgba(8, 11, 19, 0.78);
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+
+.case-study-dialog__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-dialog__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: clamp(14px, 2.5vw, 24px);
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(15, 18, 29, 0.6);
+}
+
+.case-study-dialog__client {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent-hover);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.case-study-dialog__close {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.case-study-dialog__close:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+.case-study-dialog__body {
+    padding: clamp(16px, 3vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.case-study-dialog__block h4 {
+    font-size: 0.92rem;
+    color: var(--accent-hover);
+    margin-bottom: 6px;
+}
+
+.case-study-dialog__block p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+.case-study-dialog__impact {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.case-study-dialog__impact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+.case-study-dialog__impact svg {
+    color: var(--accent-emerald);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.case-study-dialog__techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.case-study-dialog__footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: clamp(14px, 2.5vw, 24px);
+    border-top: 1px solid var(--border-color);
+    background: rgba(15, 18, 29, 0.5);
+}
+
+/* ---- Tablet & Mobile Breakpoints ---- */
+@media (max-width: 1180px) {
     .projects__grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
     .projects__grid {
         grid-template-columns: 1fr;
     }
 
     .projects {
-        padding: var(--space-lg) var(--space-md);
+        padding: 18px 14px;
+        border-radius: var(--radius-lg);
+    }
+
+    .case-study-dialog__footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .case-study-dialog__footer button,
+    .case-study-dialog__footer a {
+        width: 100%;
     }
 }

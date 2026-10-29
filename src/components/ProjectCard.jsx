@@ -1,81 +1,120 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaPlay,
+  FaBookOpen,
+} from 'react-icons/fa';
 import './ProjectCard.css';
 
-function ProjectCard({ project, index }) {
-    const [expanded, setExpanded] = useState(false);
+function ProjectPreviewGraphic({ project }) {
+  const { previewType, image, name, accentColor } = project;
 
-    return (
-        <motion.div
-            className="project-card card-dark"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-            whileHover={{ y: -6 }}
+  const windowTitle =
+    previewType === 'pos'
+      ? 'POS SellControl · JavaFX + SQLite'
+      : previewType === 'mamochi'
+        ? 'mamochi.vercel.app · Hecho con amor'
+        : previewType === 'biblioteca'
+          ? 'Biblioteca Pública · Spring Boot 4 + MySQL'
+          : 'Portafolio & Showroom · React 19';
+
+  return (
+    <div className="project-preview">
+      <div className="project-preview__window-bar">
+        <span />
+        <span />
+        <span />
+        <code>{windowTitle}</code>
+      </div>
+      <div className="project-preview__image-wrap">
+        <img
+          src={image}
+          alt={`Vista previa de ${name}`}
+          loading="lazy"
+          className="project-preview__img"
+        />
+        <span
+          className="project-preview__badge"
+          style={{ borderColor: accentColor, color: accentColor }}
         >
-            <div className="project-card__header">
-                <span className="project-card__name">{project.name}</span>
-                <button
-                    className="project-card__toggle"
-                    onClick={() => setExpanded(!expanded)}
-                    aria-label={expanded ? 'Collapse' : 'Expand'}
-                >
-                    {expanded ? <FaChevronUp /> : <FaChevronDown />}
-                </button>
-            </div>
+          ● Demo en vivo
+        </span>
+      </div>
+    </div>
+  );
+}
 
-            <div className="project-card__image-wrapper">
-                <img
-                    src={project.image}
-                    alt={project.name}
-                    className="project-card__image"
-                    loading="lazy"
-                />
-            </div>
+function ProjectCard({ project, index, onOpenCaseStudy, onTryInteractiveDemo }) {
+  return (
+    <motion.article
+      className="project-card card-dark"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.45, delay: index * 0.12 }}
+    >
+      <ProjectPreviewGraphic project={project} />
 
-            <motion.div
-                className="project-card__details"
-                initial={false}
-                animate={{ height: expanded ? 'auto' : 0, opacity: expanded ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                style={{ overflow: 'hidden' }}
+      <div className="project-card__body">
+        <span className="project-card__client">{project.clientType}</span>
+        <h3 className="project-card__name">{project.name}</h3>
+        <p className="project-card__description">{project.summary}</p>
+
+        <div className="project-card__techs">
+          {project.technologies.map((tech) => (
+            <span key={tech} className="tech-badge">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="project-card__actions">
+        <button
+          type="button"
+          className="btn-accent project-card__btn-main"
+          onClick={onTryInteractiveDemo}
+        >
+          <FaPlay aria-hidden="true" /> Probar Demo
+        </button>
+        <button
+          type="button"
+          className="btn-outline project-card__btn-case"
+          onClick={onOpenCaseStudy}
+        >
+          <FaBookOpen aria-hidden="true" /> Caso de Estudio
+        </button>
+
+        <div className="project-card__icon-links">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card__link"
+              aria-label={`Ver código en GitHub de ${project.name}`}
+              title="Ver código en GitHub"
             >
-                <p className="project-card__description">{project.description}</p>
-                <div className="project-card__techs">
-                    {project.technologies.map((tech) => (
-                        <span key={tech} className="tech-badge">{tech}</span>
-                    ))}
-                </div>
-            </motion.div>
-
-            <div className="project-card__actions">
-                {project.github && (
-                    <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-card__link"
-                        aria-label={`Ver código de ${project.name}`}
-                    >
-                        <FaGithub />
-                    </a>
-                )}
-                {project.demo && (
-                    <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-card__link"
-                        aria-label={`Ver demo de ${project.name}`}
-                    >
-                        <FaExternalLinkAlt />
-                    </a>
-                )}
-            </div>
-        </motion.div>
-    );
+              <FaGithub aria-hidden="true" />
+            </a>
+          )}
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card__link"
+              aria-label={`Abrir sitio web desplegado de ${project.name}`}
+              title="Abrir sitio web desplegado"
+            >
+              <FaExternalLinkAlt aria-hidden="true" />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
+  );
 }
 
 export default ProjectCard;

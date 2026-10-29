@@ -1,100 +1,122 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FaGraduationCap, FaCertificate, FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
+import { FaGraduationCap, FaCertificate, FaCalendarAlt, FaArrowRight, FaCogs } from 'react-icons/fa';
+import { HiOutlineAcademicCap } from 'react-icons/hi';
 import './Education.css';
 
 const educationData = [
-    {
-        icon: <FaGraduationCap />,
-        title: 'Ingeniería en Desarrollo de Software',
-        institution: 'Universidad Fidélitas',
-        period: '2024 – 2027',
-        description:
-            'Formación integral en desarrollo de software, bases de datos, redes, métodos y técnicas de gestión de proyectos con metodologías ágiles.',
-        color: '#0D6EFD',
-    },
-    {
-        icon: <FaGraduationCap />,
-        title: 'Especialización en Diseño y Desarrollo Web',
-        institution: 'Universidad Fidélitas',
-        period: '2024',
-        description:
-            'Especialización con énfasis en UX/UI, desarrollo frontend, y técnicas de optimización de rendimiento web.',
-        color: '#22c55e',
-    },
-    {
-        icon: <FaCertificate />,
-        title: 'Certificados',
-        institution: 'Plataformas online',
-        period: 'Actualización continua',
-        description:
-            'Certificaciones en programacion, seguridad informatica, soporte tecnico y metodologías ágiles de desarrollo.',
-        color: '#f59e0b',
-        clickable: true,
-    },
+  {
+    icon: <FaGraduationCap />,
+    title: 'Bachillerato en Ingeniería en Desarrollo de Software',
+    institution: 'Universidad Fidélitas',
+    period: '2024 – Actualidad',
+    description:
+      'Formación integral en arquitectura de software, estructuras de datos, bases de datos relacionales/NoSQL, redes y gestión de proyectos con metodologías ágiles.',
+    color: '#0D6EFD',
+  },
+  {
+    icon: <FaGraduationCap />,
+    title: 'Especialidad en Diseño y Desarrollo Web',
+    institution: 'Universidad Fidélitas',
+    period: '2024 – Actualidad',
+    description:
+      'Especialización con énfasis en diseño de interfaces UX/UI, maquetación semántica HTML5/CSS3, JavaScript moderno, desarrollo frontend con React y optimización web.',
+    color: '#10b981',
+  },
+  {
+    icon: <FaCogs />,
+    title: 'Técnico en Electromecánica',
+    institution: 'Instituto Técnico Vargas Matamoros',
+    period: '2022 – 2023',
+    description:
+      'Base técnica sólida en diagnóstico de equipos industriales, instrumentación, mantenimiento preventivo y resolución estructurada de fallas.',
+    color: '#8b5cf6',
+  },
+  {
+    icon: <FaCertificate />,
+    title: '12 Certificaciones Profesionales Verificadas',
+    institution: 'INA / Cisco · IBM · Universidad Fidélitas · SCRUMstudy',
+    period: '2024 – 2026',
+    description:
+      'Certificados verificables en PHP Intermedio & Avanzado, Python Essentials 1 & 2, Endpoint Security, JavaScript ES6+, HTML5/CSS3, Bootstrap, jQuery, IT Fundamentals, Hardware y Scrum.',
+    color: '#f59e0b',
+    clickable: true,
+  },
 ];
 
 const cardVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: (i) => ({
-        opacity: 1,
-        x: 0,
-        transition: { duration: 0.5, delay: i * 0.15 },
-    }),
+  hidden: { opacity: 0, x: -24 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.45, delay: i * 0.1 },
+  }),
 };
 
 function Education() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return (
-        <section id="education" className="education section">
-            <motion.h2
-                className="section-title"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+  return (
+    <section id="education" className="education section">
+      <div className="section-header">
+        <span className="section-eyebrow">
+          <HiOutlineAcademicCap aria-hidden="true" /> Formación Académica
+        </span>
+        <h2 className="section-title">
+          <span className="highlight">Educación</span> & Certificaciones
+        </h2>
+        <p className="section-subtitle">
+          Formación universitaria continua respaldada por certificaciones técnicas.
+        </p>
+      </div>
+
+      <div className="education__timeline">
+        {educationData.map((item, index) => (
+          <motion.div
+            key={item.title}
+            className={`education-card card-dark ${item.clickable ? 'education-card--clickable' : ''}`}
+            custom={index}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+          >
+            <div
+              className="education-card__icon-wrapper"
+              style={{ background: `${item.color}20`, color: item.color }}
+              aria-hidden="true"
             >
-                <span className="highlight">Educación</span>
-            </motion.h2>
-
-            <div className="education__timeline">
-                {educationData.map((item, index) => (
-                    <motion.div
-                        key={index}
-                        className={`education-card card-dark ${item.clickable ? 'education-card--clickable' : ''}`}
-                        custom={index}
-                        variants={cardVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: '-40px' }}
-                        onClick={item.clickable ? () => navigate('/certificados') : undefined}
-                        style={item.clickable ? { cursor: 'pointer' } : undefined}
-                    >
-                        <div className="education-card__icon-wrapper" style={{ background: `${item.color}20`, color: item.color }}>
-                            {item.icon}
-                        </div>
-                        <div className="education-card__content">
-                            <h3 className="education-card__title">{item.title}</h3>
-                            <p className="education-card__institution">{item.institution}</p>
-                            <p className="education-card__description">{item.description}</p>
-                        </div>
-                        {item.clickable ? (
-                            <div className="education-card__action" style={{ color: item.color }}>
-                                <span>Ver todos</span>
-                                <FaArrowRight />
-                            </div>
-                        ) : (
-                            <div className="education-card__period" style={{ background: `${item.color}15`, color: item.color }}>
-                                <FaCalendarAlt />
-                                <span>{item.period}</span>
-                            </div>
-                        )}
-                    </motion.div>
-                ))}
+              {item.icon}
             </div>
-        </section>
-    );
+            <div className="education-card__content">
+              <h3 className="education-card__title">{item.title}</h3>
+              <p className="education-card__institution">{item.institution}</p>
+              <p className="education-card__description">{item.description}</p>
+            </div>
+            {item.clickable ? (
+              <button
+                type="button"
+                className="education-card__action-btn"
+                style={{ color: item.color, borderColor: `${item.color}55` }}
+                onClick={() => navigate('/certificados')}
+              >
+                <span>Ver los 12 certificados</span>
+                <FaArrowRight aria-hidden="true" />
+              </button>
+            ) : (
+              <div
+                className="education-card__period"
+                style={{ background: `${item.color}15`, color: item.color }}
+              >
+                <FaCalendarAlt aria-hidden="true" />
+                <span>{item.period}</span>
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default Education;

@@ -1,0 +1,2904 @@
+/* ============================================================================
+   DEMO SHOWROOM STYLES — Réplicas Fieles de Proyectos Reales
+   1) POS SellControl (JavaFX + SQLite - Verdulería VL)
+   2) Mamochi (Hecho con Amor - Tienda de Crochet Artesanal)
+   ============================================================================ */
+
+.showroom {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: clamp(16px, 3.5vw, 44px);
+    border: 1px solid var(--border-color);
+}
+
+/* ---- Top Controls ---- */
+.showroom__top-controls {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-md);
+}
+
+.showroom__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 12px;
+    flex: 1 1 680px;
+}
+
+.showroom__tab {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    text-align: left;
+    min-width: 0;
+    touch-action: manipulation;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.showroom__tab:hover {
+    background: var(--bg-card-elevated);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.showroom__tab--active {
+    background: rgba(13, 110, 253, 0.16);
+    border-color: var(--accent);
+    color: var(--text-primary);
+    box-shadow: 0 4px 18px var(--accent-glow);
+}
+
+.showroom__tab-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: rgba(13, 110, 253, 0.15);
+    color: var(--accent-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+.showroom__tab-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.showroom__tab-cat {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.showroom__tab-text strong {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---- Audience Mode Switch ---- */
+.showroom__mode-switch {
+    display: inline-flex;
+    background: var(--bg-primary);
+    padding: 4px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    align-self: center;
+}
+
+.showroom__mode-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.showroom__mode-btn--active {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ---- Context Banner ---- */
+.showroom__context-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: clamp(14px, 2.5vw, 24px);
+    margin-bottom: var(--space-md);
+}
+
+.showroom__client-banner,
+.showroom__recruiter-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.showroom__client-info,
+.showroom__recruiter-info {
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+.showroom__banner-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: 8px;
+    max-width: 100%;
+}
+
+.showroom__banner-tag--tech {
+    color: #93c5fd;
+    background: rgba(13, 110, 253, 0.14);
+    border-color: rgba(13, 110, 253, 0.3);
+}
+
+.showroom__context-card h3 {
+    font-size: clamp(1.02rem, 0.9rem + 0.5vw, 1.18rem);
+    margin-bottom: 6px;
+}
+
+.showroom__context-card p {
+    font-size: 0.86rem;
+    margin-bottom: 12px;
+}
+
+.showroom__deliverables {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 14px;
+}
+
+.showroom__deliverables li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.showroom__deliverables svg {
+    color: var(--accent-emerald);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.showroom__client-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.showroom__live-link {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 8px 14px;
+}
+
+.showroom__client-cta small {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.showroom__tech-points {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.83rem;
+    color: var(--text-secondary);
+}
+
+.showroom__recruiter-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 320px;
+}
+
+.showroom__recruiter-stack > span {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.showroom__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* ---- Browser Frame & Viewport Switcher ---- */
+.showroom__browser-wrapper {
+    background: var(--bg-primary);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.showroom__browser-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #0a0d16;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.showroom__url-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.showroom__url-bar code {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.showroom__live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--accent-emerald);
+    box-shadow: 0 0 8px var(--accent-emerald);
+    flex-shrink: 0;
+}
+
+.showroom__viewport-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.showroom__vp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    touch-action: manipulation;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.showroom__vp-btn--active {
+    background: rgba(13, 110, 253, 0.2);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+/* ---- Stage Container Queries ---- */
+.showroom__stage {
+    container-type: inline-size;
+    margin: 0 auto;
+    transition: max-width var(--transition-base);
+    background: #0d101b;
+}
+
+.showroom__stage--desktop {
+    max-width: 100%;
+}
+
+.showroom__stage--tablet {
+    max-width: 768px;
+    border-left: 1px dashed rgba(255, 255, 255, 0.15);
+    border-right: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.showroom__stage--mobile {
+    max-width: 410px;
+    border-left: 1px dashed rgba(255, 255, 255, 0.18);
+    border-right: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+/* ============================================================================
+   1. ESTILOS FIELES DE POS SELLCONTROL (punto_de_venta/css/styles.css)
+   Paleta JavaFX original:
+   -fx-primary: #2c3e50 | -fx-accent: #27ae60 | -fx-danger: #e74c3c
+   -fx-warning: #f39c12 | -fx-bg: #ecf0f1 | -fx-bg-card: #ffffff
+   ============================================================================ */
+
+.javafx-pos {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #2c3e50;
+    background: #ecf0f1;
+}
+
+.javafx-pos__module-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 8px 14px;
+    background: #1e2b37;
+    border-bottom: 1px solid #34495e;
+}
+
+.javafx-pos__module-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #ecf0f1;
+    margin-right: 4px;
+}
+
+.javafx-pos__mod-chip {
+    background: #2c3e50;
+    color: #bdc3c7;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.javafx-pos__mod-chip:hover {
+    background: #34495e;
+    color: #ffffff;
+}
+
+.javafx-pos__mod-chip--active {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: #ffffff;
+}
+
+/* Contenedores principales (styles.css líneas 30-36) */
+.fx-login-container {
+    background: linear-gradient(to bottom, #2c3e50, #3498db);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    gap: 14px;
+}
+
+.fx-app-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.65rem;
+    margin: 0;
+}
+
+.fx-login-subtitle {
+    color: #bdc3c7;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.fx-login-form {
+    width: 100%;
+    max-width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fx-form-label {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.fx-form-input {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+    color: #2c3e50;
+}
+
+.fx-form-input:focus {
+    border-color: #27ae60;
+    background: #ffffff;
+    outline: none;
+}
+
+.fx-login-hint {
+    color: #ecf0f1;
+    font-size: 0.76rem;
+    text-align: center;
+}
+
+.fx-dashboard-container {
+    background: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+}
+
+/* Toolbar (styles.css líneas 187-201) */
+.fx-toolbar {
+    background: #2c3e50;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.fx-toolbar-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+}
+
+.fx-toolbar-subtitle {
+    color: #bdc3c7;
+    font-size: 0.85rem;
+}
+
+.fx-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fx-toolbar-search {
+    width: 190px;
+    padding: 6px 10px;
+    font-size: 0.84rem;
+}
+
+/* Botones JavaFX (styles.css líneas 110-184) */
+.fx-btn {
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.84rem;
+    padding: 8px 16px;
+    color: #ffffff;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: background-color 0.15s;
+}
+
+.fx-btn-primary {
+    background: #27ae60;
+}
+
+.fx-btn-primary:hover:not(:disabled) {
+    background: #2ecc71;
+}
+
+.fx-btn-secondary {
+    background: #3498db;
+}
+
+.fx-btn-secondary:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.fx-btn-danger {
+    background: #e74c3c;
+}
+
+.fx-btn-danger:hover:not(:disabled) {
+    background: #c0392b;
+}
+
+.fx-btn-warning {
+    background: #f39c12;
+}
+
+.fx-btn-warning:hover:not(:disabled) {
+    background: #e67e22;
+}
+
+.fx-btn-lg {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+}
+
+.fx-btn-xs {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+}
+
+.fx-w-full {
+    width: 100%;
+}
+
+/* Panel Principal (dashboard.fxml) */
+.fx-dashboard-center {
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.fx-section-title {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.fx-section-title--lg {
+    font-size: 1.3rem;
+}
+
+.fx-menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    max-width: 640px;
+}
+
+.fx-btn-menu {
+    background: #ffffff;
+    color: #2c3e50;
+    font-size: 1.02rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid #bdc3c7;
+    width: 175px;
+    height: 105px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.fx-btn-menu:hover {
+    background: #27ae60;
+    color: #ffffff;
+    border-color: #27ae60;
+}
+
+/* TabPane JavaFX (ventas.fxml y gastos.fxml) */
+.fx-tab-pane {
+    padding: 10px 14px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fx-tab-header {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid #bdc3c7;
+    flex-wrap: wrap;
+}
+
+.fx-tab-btn {
+    background: #dfe6e9;
+    color: #2c3e50;
+    border: 1px solid #bdc3c7;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 8px 16px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.fx-tab-btn--active {
+    background: #ffffff;
+    color: #27ae60;
+    border-top: 3px solid #27ae60;
+}
+
+.fx-tab-body {
+    background: #ffffff;
+    border: 1px solid #bdc3c7;
+    border-top: none;
+    padding: 14px;
+    flex: 1;
+}
+
+.fx-ventas-activas-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.fx-subtabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.fx-subtab {
+    display: inline-flex;
+    align-items: center;
+    background: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.fx-subtab--active {
+    background: #d5f5e3;
+    border-color: #27ae60;
+}
+
+.fx-subtab__select {
+    background: transparent;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.fx-subtab__close {
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+/* Split de venta_tab.fxml */
+.fx-venta-tab-split {
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.fx-venta-left {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    background: #f8f9fa;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.fx-field-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.fx-input,
+.fx-combo {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 0.85rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #2c3e50;
+}
+
+.fx-input:focus,
+.fx-combo:focus {
+    border-color: #27ae60;
+    outline: none;
+}
+
+.fx-quick-produce {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.fx-quick-chip {
+    background: #e8f8f5;
+    border: 1px solid #a3e4d7;
+    color: #1e8449;
+    border-radius: 4px;
+    padding: 3px 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fx-quick-chip:hover {
+    background: #27ae60;
+    color: #ffffff;
+}
+
+.fx-unit-price-label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    font-weight: 600;
+}
+
+.fx-subtotal-preview {
+    font-size: 0.88rem;
+    color: #2c3e50;
+}
+
+.fx-btn-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fx-separator {
+    border: none;
+    border-top: 1px solid #bdc3c7;
+    margin: 4px 0;
+}
+
+.fx-checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.fx-venta-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+/* Tablas JavaFX con cabecera sticky (responsive-table guide) */
+.pos-table-wrapper {
+    overflow: auto;
+    max-inline-size: 100%;
+    max-block-size: min(320px, 65dvh);
+    container-type: inline-size;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.fx-data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.84rem;
+    color: #2c3e50;
+}
+
+.fx-data-table thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+}
+
+.fx-data-table th {
+    background: #2c3e50;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 9px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.fx-data-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ecf0f1;
+    cursor: pointer;
+}
+
+.fx-row-selected td {
+    background: #d5f5e3;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.fx-table-empty {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 20px !important;
+}
+
+.fx-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.74rem;
+    font-weight: 700;
+}
+
+.fx-badge--ok {
+    background: #d5f5e3;
+    color: #1e8449;
+}
+
+.fx-badge--warn {
+    background: #fdebd0;
+    color: #b9770e;
+}
+
+.fx-venta-bottom-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+}
+
+.fx-total-display {
+    margin-left: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.fx-total-display__label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.fx-total-display__amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #e74c3c;
+}
+
+/* Impresora Térmica 58mm HOP-H58 (TicketPrintService.java) */
+.fx-thermal-ticket-card {
+    background: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.fx-thermal-ticket-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.fx-thermal-paper {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: #111111;
+    max-width: 310px;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.fx-tp-center {
+    text-align: center;
+}
+
+.fx-tp-bold {
+    font-weight: 700;
+}
+
+.fx-tp-double {
+    font-size: 0.92rem;
+}
+
+.fx-tp-footer {
+    margin-top: 6px;
+}
+
+/* Módulos secundarios (Productos, Caja, Gastos, Reportes, Ticket) */
+.fx-module-body {
+    padding: 14px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fx-split-layout {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.fx-side-form {
+    background: #ffffff;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fx-side-table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.fx-inline-modal-card {
+    background: #ffffff;
+    border: 2px solid #27ae60;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.fx-inline-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.fx-mt-10 {
+    margin-top: 10px;
+}
+
+/* Tarjetas de Reportes (styles.css líneas 285-301) */
+.fx-report-cards-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.fx-report-cards-row--three {
+    grid-template-columns: 1fr 1fr 1.4fr;
+}
+
+.fx-card {
+    background: #ffffff;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.fx-card__label {
+    font-size: 0.72rem;
+    color: #7f8c8d;
+    font-weight: 600;
+}
+
+.fx-card__val {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.fx-text-green {
+    color: #27ae60 !important;
+}
+
+.fx-text-warn {
+    color: #f39c12 !important;
+}
+
+.fx-text-danger {
+    color: #e74c3c !important;
+}
+
+.fx-card-ganancia {
+    background: #d5f5e3;
+    border: 2px solid #27ae60;
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.fx-card-ganancia__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.fx-card-ganancia__val {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #27ae60;
+}
+
+.fx-ticket-form-card,
+.fx-ticket-preview-card {
+    align-items: stretch;
+    padding: 16px;
+    gap: 8px;
+}
+
+/* Action bar inferior (styles.css líneas 260-265) */
+.fx-action-bar {
+    background: #ffffff;
+    border-top: 1px solid #bdc3c7;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fx-action-bar--right {
+    justify-content: flex-end;
+}
+
+.fx-status-label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.fx-error-label {
+    color: #ffdddd;
+    background: rgba(231, 76, 60, 0.35);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ============================================================================
+   2. ESTILOS FIELES DE MAMOCHI (Mamochi/css/style.css)
+   Paleta original:
+   --pink-main: #FF8FA3 | --pink-dark: #C94A6A | --pink-light: #F3B6C4
+   --cream: #FAF7F5 | --mauve: #8C7A80 | --text-dark: #3d3035
+   ============================================================================ */
+
+.mamochi-site {
+    background: #FAF7F5;
+    color: #3d3035;
+    font-family: "Open Sans", sans-serif;
+    max-height: 700px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Navbar de Mamochi */
+.mamochi-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #F3B6C4;
+    padding: 10px 20px;
+    box-shadow: 0 4px 15px rgba(201, 74, 106, 0.1);
+}
+
+.mamochi-navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.mamochi-brand {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    cursor: pointer;
+    line-height: 1.1;
+}
+
+.mamochi-brand__name {
+    font-family: "Cherry Swash", cursive;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #C94A6A;
+}
+
+.mamochi-brand__tagline {
+    font-family: "Dancing Script", cursive;
+    font-size: 0.88rem;
+    color: #8C7A80;
+}
+
+.mamochi-navbar__toggler {
+    display: none;
+    background: transparent;
+    border: 2px solid #FF8FA3;
+    color: #C94A6A;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.mamochi-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mamochi-nav-link {
+    background: transparent;
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 0.86rem;
+    color: #3d3035;
+    padding: 7px 14px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.mamochi-nav-link:hover {
+    background: #F3B6C4;
+    color: #C94A6A;
+}
+
+/* Hero Section de Mamochi */
+.mamochi-hero {
+    background: linear-gradient(135deg, #FAF7F5 0%, #F3B6C4 50%, #FF8FA3 100%);
+    padding: clamp(24px, 4vw, 48px) clamp(18px, 4vw, 36px);
+}
+
+.mamochi-hero__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    align-items: center;
+}
+
+.mamochi-hero__title {
+    font-family: "Bree Serif", serif;
+    font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.35rem);
+    color: #3d3035;
+    margin-bottom: 12px;
+}
+
+.mamochi-hero__subtitle {
+    font-size: 0.95rem;
+    color: #3d3035;
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+.mamochi-btn-ofertas {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #C94A6A;
+    color: #ffffff;
+    font-family: "Bree Serif", serif;
+    font-size: 0.95rem;
+    padding: 11px 26px;
+    border-radius: 50px;
+    border: 2px solid #C94A6A;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(201, 74, 106, 0.25);
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.mamochi-btn-ofertas:hover {
+    background: #ffffff;
+    color: #C94A6A;
+    transform: translateY(-2px);
+}
+
+.mamochi-hero__img-wrap {
+    text-align: center;
+}
+
+.mamochi-hero__img {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(201, 74, 106, 0.22);
+}
+
+/* Encabezados de sección Mamochi */
+.mamochi-section-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.mamochi-section-title {
+    font-family: "Cherry Swash", cursive;
+    font-size: clamp(1.45rem, 1.2rem + 1vw, 2rem);
+    color: #C94A6A;
+    margin-bottom: 6px;
+}
+
+.mamochi-section-subtitle {
+    font-size: 0.92rem;
+    color: #8C7A80;
+    margin: 0;
+}
+
+/* Promociones del Día (Carrusel) */
+.mamochi-promos {
+    padding: 36px 24px;
+    background: #FAF7F5;
+}
+
+.mamochi-carousel {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(201, 74, 106, 0.16);
+}
+
+.mamochi-carousel__img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    display: block;
+}
+
+.mamochi-carousel__caption {
+    position: absolute;
+    inset-inline: 16px;
+    bottom: 14px;
+    background: rgba(61, 48, 53, 0.78);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.mamochi-carousel__caption h5 {
+    font-family: "Bree Serif", serif;
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.mamochi-carousel__caption p {
+    color: #FAF7F5;
+    font-size: 0.84rem;
+    margin: 0;
+}
+
+.mamochi-carousel__ctrl {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #C94A6A;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mamochi-carousel__ctrl--prev {
+    left: 12px;
+}
+
+.mamochi-carousel__ctrl--next {
+    right: 12px;
+}
+
+/* Sobre Mamochi + Misión, Visión, Valores */
+.mamochi-about__story {
+    padding: 36px 24px;
+    background: #ffffff;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.mamochi-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #F3B6C4, #FF8FA3);
+    color: #ffffff;
+    font-family: "Bree Serif", serif;
+    font-size: 0.8rem;
+    padding: 5px 16px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.mamochi-about__story p {
+    color: #3d3035;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.mamochi-about__highlight {
+    font-family: "Bree Serif", serif;
+    color: #C94A6A !important;
+    font-size: 1.02rem !important;
+}
+
+.mamochi-mvv {
+    background: #F3B6C4;
+    padding: 32px 24px;
+}
+
+.mamochi-mvv__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.mamochi-mvv__card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px 18px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(201, 74, 106, 0.12);
+}
+
+.mamochi-mvv__icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    background: linear-gradient(135deg, #FF8FA3, #C94A6A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.35rem;
+}
+
+.mamochi-mvv__title {
+    font-family: "Bree Serif", serif;
+    color: #C94A6A;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.mamochi-mvv__text {
+    color: #3d3035;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mamochi-mvv__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.84rem;
+    color: #3d3035;
+}
+
+.mamochi-mvv__list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mamochi-mvv__list svg {
+    color: #C94A6A;
+    flex-shrink: 0;
+}
+
+/* Catálogo de Productos de Mamochi */
+.mamochi-products {
+    padding: 36px 24px;
+    background: #FAF7F5;
+}
+
+.mamochi-products__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.mamochi-product-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(201, 74, 106, 0.12);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s;
+}
+
+.mamochi-product-card:hover {
+    transform: translateY(-6px);
+}
+
+.mamochi-product-card__img-wrap {
+    height: 210px;
+    overflow: hidden;
+    background: #F3B6C4;
+}
+
+.mamochi-product-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s;
+}
+
+.mamochi-product-card:hover .mamochi-product-card__img {
+    transform: scale(1.06);
+}
+
+.mamochi-product-card__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.mamochi-product-card__name {
+    font-family: "Bree Serif", serif;
+    font-size: 1.08rem;
+    color: #3d3035;
+    margin-bottom: 6px;
+}
+
+.mamochi-product-card__desc {
+    font-size: 0.84rem;
+    color: #8C7A80;
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 12px;
+}
+
+.mamochi-product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.mamochi-preview-wa-chip {
+    background: #FAF7F5;
+    border: 1px solid #F3B6C4;
+    color: #C94A6A;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mamochi-btn-whatsapp {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.mamochi-btn-whatsapp:hover {
+    background: #128C7E;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.mamochi-wa-toast {
+    margin-top: 16px;
+    background: #ffffff;
+    border: 2px solid #25D366;
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.mamochi-wa-toast div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.84rem;
+    color: #3d3035;
+}
+
+.mamochi-wa-toast code {
+    color: #128C7E;
+    font-weight: 600;
+}
+
+/* Encargos Personalizados */
+.mamochi-custom-orders {
+    background: linear-gradient(135deg, #F3B6C4 0%, #FF8FA3 100%);
+    padding: 36px 24px;
+}
+
+.mamochi-custom-orders__box {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: clamp(22px, 4vw, 38px);
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(201, 74, 106, 0.2);
+}
+
+.mamochi-custom-orders__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, #FF8FA3, #C94A6A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.mamochi-custom-orders__text {
+    color: #3d3035;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.mamochi-custom-orders__notice {
+    background: #FAF7F5;
+    border-left: 4px solid #C94A6A;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #3d3035;
+}
+
+.mamochi-custom-orders__notice svg {
+    color: #C94A6A;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.mamochi-btn-custom-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: #ffffff;
+    font-family: "Bree Serif", serif;
+    font-size: 0.95rem;
+    padding: 11px 26px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+}
+
+.mamochi-btn-custom-order:hover {
+    background: #128C7E;
+    color: #ffffff;
+}
+
+/* Comentarios de Clientes */
+.mamochi-comments {
+    padding: 36px 24px;
+    background: #FAF7F5;
+}
+
+.mamochi-comments__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.mamochi-comment-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    border-top: 4px solid #FF8FA3;
+    box-shadow: 0 4px 15px rgba(201, 74, 106, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mamochi-comment-card__stars {
+    color: #FFD700;
+    display: flex;
+    gap: 3px;
+}
+
+.mamochi-comment-card__text {
+    color: #3d3035;
+    font-size: 0.84rem;
+    font-style: italic;
+    line-height: 1.6;
+    flex: 1;
+    margin: 0;
+}
+
+.mamochi-comment-card__author {
+    font-family: "Bree Serif", serif;
+    color: #C94A6A;
+    font-size: 0.88rem;
+}
+
+/* Contacto y Footer de Mamochi */
+.mamochi-contact {
+    padding: 36px 24px;
+    background: #ffffff;
+}
+
+.mamochi-contact__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.mamochi-contact-card {
+    background: #FAF7F5;
+    border-radius: 18px;
+    padding: 22px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.mamochi-contact-card__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF8FA3, #C94A6A);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.mamochi-contact-card h5 {
+    font-family: "Bree Serif", serif;
+    color: #C94A6A;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.mamochi-contact-card p {
+    color: #3d3035;
+    font-size: 0.84rem;
+    margin: 0;
+}
+
+.mamochi-social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.mamochi-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+.mamochi-social-btn--ig {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.mamochi-social-btn--wa {
+    background: #25D366;
+}
+
+.mamochi-footer {
+    background: #3d3035;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.mamochi-footer__brand {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.25rem;
+    color: #FF8FA3;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.mamochi-footer p {
+    color: #F3B6C4;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* ============================================================================
+   PROYECTO REAL 3: SISTEMA BIBLIOTECA PÚBLICA (Spring Boot 4 + Thymeleaf)
+   Réplica de tienda/src/main/resources/static/css/estilos.css
+   ============================================================================ */
+.biblio-app {
+    background-color: #F7F5F0;
+    color: #1F2933;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 620px;
+    display: flex;
+    flex-direction: column;
+}
+
+.biblio-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.biblio-navbar {
+    background-color: #14283D;
+    padding: 12px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+}
+
+.biblio-navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.biblio-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-family: Georgia, Cambria, "Times New Roman", serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+}
+
+.biblio-brand__icon {
+    color: #D4B259;
+    font-size: 1.2rem;
+    display: inline-flex;
+}
+
+.biblio-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.biblio-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 6px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.biblio-nav-link:hover,
+.biblio-nav-link--active {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.biblio-lang-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 3px;
+    border-radius: 6px;
+}
+
+.biblio-lang-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.biblio-lang-btn--active {
+    background: #B89138;
+    color: #14283D;
+}
+
+.biblio-franja-dorada {
+    height: 4px;
+    background: linear-gradient(90deg, #B89138 0%, #D4B259 50%, #B89138 100%);
+}
+
+.biblio-staff-subnav {
+    background-color: #EAE5DA;
+    border-bottom: 1px solid #E2DDD3;
+    padding: 8px 20px;
+}
+
+.biblio-staff-subnav__inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.biblio-staff-subnav__title {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #14283D;
+    margin-right: 4px;
+}
+
+.biblio-staff-link {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #234567;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.biblio-staff-link:hover,
+.biblio-staff-link--active {
+    background-color: #FFFFFF;
+    border-color: #B89138;
+    color: #14283D;
+}
+
+.biblio-flash-alert {
+    background-color: #E6F4EA;
+    color: #1E6B43;
+    border-bottom: 1px solid #B7DFC2;
+    padding: 9px 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* Hero Institucional (.hero-biblioteca) */
+.biblio-hero {
+    background: linear-gradient(135deg, #14283D 0%, #234567 100%);
+    color: #FFFFFF;
+    padding: 28px 22px;
+    border-bottom: 4px solid #B89138;
+}
+
+.biblio-hero__grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.biblio-hero__badge {
+    display: inline-block;
+    background-color: #B89138;
+    color: #14283D;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.biblio-hero__title {
+    font-family: Georgia, Cambria, "Times New Roman", serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 8px;
+}
+
+.biblio-hero__sub {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0 0 14px;
+}
+
+.biblio-hero__search {
+    display: flex;
+    gap: 8px;
+}
+
+.biblio-hero__stats-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.biblio-hero__stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.biblio-hero__stat-num {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #D4B259;
+}
+
+.biblio-hero__stat-label {
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.biblio-hero__stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.biblio-hero__stat-note {
+    font-size: 0.74rem;
+    color: rgba(255, 255, 255, 0.78);
+    text-align: center;
+    margin: 0;
+}
+
+/* Contenedor y Secciones */
+.biblio-container {
+    padding: 22px;
+    flex: 1;
+}
+
+.biblio-genres-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #E2DDD3;
+}
+
+.biblio-genres-strip__label {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #14283D;
+}
+
+.biblio-genres-strip__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.biblio-genre-pill {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    color: #14283D;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.biblio-genre-pill:hover {
+    background: #14283D;
+    border-color: #14283D;
+    color: #FFFFFF;
+}
+
+.biblio-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.biblio-section-title {
+    font-family: Georgia, Cambria, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #14283D;
+    margin: 0;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.biblio-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    height: 3px;
+    background-color: #B89138;
+    border-radius: 2px;
+}
+
+.biblio-text-muted {
+    color: #5A6570;
+    font-size: 0.82rem;
+    margin: 4px 0 0;
+}
+
+/* Grid de Libros (.card-biblioteca.book-card) */
+.biblio-books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.biblio-book-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(20, 40, 61, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.biblio-book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(20, 40, 61, 0.12);
+}
+
+.biblio-book-cover-frame {
+    background: linear-gradient(180deg, #EAE5DA 0%, #DFD8C8 100%);
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #E2DDD3;
+}
+
+.biblio-portada-img {
+    width: 96px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    background-color: #14283D;
+}
+
+.biblio-book-card__body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.biblio-badge-genero {
+    align-self: flex-start;
+    background-color: #234567;
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.biblio-book-card__title {
+    font-family: Georgia, serif;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #14283D;
+    margin: 0 0 4px;
+    line-height: 1.3;
+}
+
+.biblio-book-card__author {
+    font-size: 0.8rem;
+    color: #5A6570;
+    margin: 0 0 2px;
+}
+
+.biblio-book-card__meta {
+    font-size: 0.72rem;
+    color: #7B8794;
+    margin: 0 0 10px;
+}
+
+.biblio-book-card__footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #E2DDD3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.biblio-book-card__actions {
+    display: inline-flex;
+    gap: 5px;
+}
+
+/* Badges de Estado (.badge-disponible, .badge-agotado, etc.) */
+.biblio-badge-disponible {
+    background-color: #E6F4EA;
+    color: #1E6B43;
+    border: 1px solid #B7DFC2;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.biblio-badge-agotado {
+    background-color: #FCE8E6;
+    color: #A82424;
+    border: 1px solid #F5C2C0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.biblio-badge-reservado {
+    background-color: #FEF7E0;
+    color: #8F6B00;
+    border: 1px solid #F5E0A3;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Botones Institucionales */
+.biblio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: filter 0.15s ease, background-color 0.15s ease;
+}
+
+.biblio-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.biblio-btn--sm {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+}
+
+.biblio-btn--primary {
+    background-color: #14283D;
+    color: #FFFFFF;
+}
+
+.biblio-btn--primary:hover:not(:disabled) {
+    background-color: #234567;
+}
+
+.biblio-btn--green {
+    background-color: #1E6B43;
+    color: #FFFFFF;
+}
+
+.biblio-btn--green:hover:not(:disabled) {
+    background-color: #165233;
+}
+
+.biblio-btn--danger {
+    background-color: #A82424;
+    color: #FFFFFF;
+}
+
+.biblio-btn--outline {
+    background-color: #FFFFFF;
+    border-color: #14283D;
+    color: #14283D;
+}
+
+.biblio-btn--outline:hover {
+    background-color: #14283D;
+    color: #FFFFFF;
+}
+
+.biblio-w-full {
+    width: 100%;
+}
+
+/* Inputs & Filtros */
+.biblio-input,
+.biblio-select {
+    width: 100%;
+    padding: 8px 11px;
+    border: 1px solid #CBD2D9;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #1F2933;
+    font-size: 0.84rem;
+}
+
+.biblio-label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #14283D;
+    margin-bottom: 4px;
+}
+
+.biblio-filter-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+}
+
+.biblio-form-title {
+    font-family: Georgia, serif;
+    color: #14283D;
+    margin: 0 0 12px;
+    font-size: 0.96rem;
+}
+
+.biblio-filter-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.biblio-filter-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.biblio-count-pill {
+    background: #EAE5DA;
+    color: #14283D;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+/* Tarjetas de Servicios y Estadísticas */
+.biblio-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.biblio-service-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    border-top: 3px solid #14283D;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.biblio-service-card h5 {
+    font-family: Georgia, serif;
+    color: #14283D;
+    font-size: 0.96rem;
+    margin: 0 0 6px;
+}
+
+.biblio-service-card p {
+    font-size: 0.8rem;
+    color: #5A6570;
+    margin: 0 0 12px;
+}
+
+.biblio-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.biblio-stat-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    border-left: 4px solid #14283D;
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+
+.biblio-stat-card--green {
+    border-left-color: #1E6B43;
+}
+
+.biblio-stat-card--gold {
+    border-left-color: #B89138;
+}
+
+.biblio-stat-card__label {
+    display: block;
+    font-size: 0.76rem;
+    color: #5A6570;
+    margin-bottom: 4px;
+}
+
+.biblio-stat-card__num {
+    font-family: Georgia, serif;
+    font-size: 1.55rem;
+    color: #14283D;
+}
+
+/* Ficha Bibliográfica y Reserva */
+.biblio-breadcrumb {
+    margin-bottom: 14px;
+}
+
+.biblio-ficha-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.biblio-ficha-card,
+.biblio-reserva-card,
+.biblio-carnet-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.biblio-ficha-card {
+    padding: 18px;
+}
+
+.biblio-ficha-card__top {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 18px;
+}
+
+.biblio-ficha-cover {
+    background: #EAE5DA;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.biblio-ficha-cover .biblio-portada-img {
+    width: 110px;
+}
+
+.biblio-ficha-title {
+    font-family: Georgia, serif;
+    color: #14283D;
+    font-size: 1.25rem;
+    margin: 6px 0 4px;
+}
+
+.biblio-ficha-author {
+    color: #5A6570;
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin: 0 0 10px;
+}
+
+.biblio-ficha-sinopsis {
+    font-size: 0.84rem;
+    color: #1F2933;
+    line-height: 1.55;
+    margin: 0 0 14px;
+}
+
+.biblio-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    background: #F7F5F0;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #E2DDD3;
+}
+
+.biblio-specs-grid small {
+    display: block;
+    font-size: 0.7rem;
+    color: #5A6570;
+}
+
+.biblio-specs-grid strong {
+    font-size: 0.82rem;
+    color: #14283D;
+}
+
+.biblio-reserva-card__header {
+    background: #14283D;
+    color: #FFFFFF;
+    padding: 12px 16px;
+    border-bottom: 3px solid #B89138;
+}
+
+.biblio-reserva-card__header h5 {
+    font-family: Georgia, serif;
+    color: #FFFFFF;
+    font-size: 0.96rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.biblio-reserva-card__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.biblio-availability-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F7F5F0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.biblio-conditions-box {
+    background: #FEF7E0;
+    border: 1px solid #F5E0A3;
+    color: #5C4500;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.76rem;
+}
+
+.biblio-conditions-box ul {
+    margin: 4px 0 0;
+    padding-left: 16px;
+}
+
+/* Tablas Institucionales (.table-biblioteca) */
+.biblio-head-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.biblio-filter-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.biblio-pill-btn {
+    background: #FFFFFF;
+    border: 1px solid #CBD2D9;
+    color: #14283D;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.biblio-pill-btn--active {
+    background: #14283D;
+    border-color: #14283D;
+    color: #FFFFFF;
+}
+
+.biblio-table-wrap {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD3;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.biblio-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.biblio-table thead th {
+    background-color: #14283D;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.biblio-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #E2DDD3;
+    color: #1F2933;
+    vertical-align: middle;
+}
+
+.biblio-table-sub {
+    font-size: 0.73rem;
+    color: #5A6570;
+}
+
+.biblio-table-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.biblio-state-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.biblio-state-badge--activo {
+    background: #E6F4EA;
+    color: #1E6B43;
+}
+
+.biblio-state-badge--reservado {
+    background: #FEF7E0;
+    color: #8F6B00;
+}
+
+.biblio-state-badge--finalizado,
+.biblio-state-badge--cancelado {
+    background: #EAE5DA;
+    color: #5A6570;
+}
+
+/* Carnet Digital */
+.biblio-carnet-card__header {
+    background: linear-gradient(135deg, #14283D 0%, #234567 100%);
+    color: #FFFFFF;
+    padding: 18px 20px;
+    border-bottom: 4px solid #B89138;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.biblio-carnet-card__header h4 {
+    font-family: Georgia, serif;
+    color: #FFFFFF;
+    margin: 4px 0;
+}
+
+.biblio-carnet-card__header p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.82rem;
+    margin: 0;
+}
+
+.biblio-carnet-code {
+    background: #B89138;
+    color: #14283D;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+}
+
+.biblio-carnet-card__body {
+    padding: 18px;
+}
+
+/* Footer Institucional */
+.biblio-footer {
+    background: #14283D;
+    color: #FFFFFF;
+    border-top: 3px solid #B89138;
+    padding: 14px 20px;
+    margin-top: auto;
+}
+
+.biblio-footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.biblio-footer strong {
+    font-family: Georgia, serif;
+    font-size: 0.86rem;
+    display: block;
+}
+
+.biblio-footer p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.75rem;
+    margin: 2px 0 0;
+}
+
+.biblio-footer__badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: #D4B259;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* ============================================================================
+   CONTAINER QUERIES PARA EL SIMULADOR DE PANTALLA (Desktop / Tablet / Móvil)
+   ============================================================================ */
+@container (max-width: 740px) {
+    .fx-venta-tab-split,
+    .fx-split-layout,
+    .mamochi-hero__grid,
+    .biblio-hero__grid,
+    .biblio-ficha-grid,
+    .biblio-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fx-report-cards-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fx-report-cards-row--three {
+        grid-template-columns: 1fr;
+    }
+
+    .mamochi-mvv__grid,
+    .mamochi-products__grid,
+    .mamochi-comments__grid,
+    .mamochi-contact__grid,
+    .biblio-books-grid,
+    .biblio-stats-grid,
+    .biblio-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mamochi-hero {
+        text-align: center;
+    }
+}
+
+@container (max-width: 480px) {
+    .fx-report-cards-row,
+    .fx-inline-modal-grid,
+    .mamochi-mvv__grid,
+    .mamochi-products__grid,
+    .mamochi-comments__grid,
+    .mamochi-contact__grid,
+    .biblio-books-grid,
+    .biblio-stats-grid,
+    .biblio-services-grid,
+    .biblio-ficha-card__top,
+    .biblio-specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .biblio-hero__search {
+        flex-direction: column;
+    }
+
+    .fx-btn-menu {
+        width: 100%;
+        height: 76px;
+    }
+
+    .mamochi-navbar__toggler {
+        display: inline-flex;
+    }
+
+    .mamochi-nav-list {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 8px;
+    }
+
+    .mamochi-nav-list--open {
+        display: flex;
+    }
+}
+
+/* ---- Viewport Media Queries ---- */
+@media (max-width: 960px) {
+    .showroom__tabs {
+        grid-template-columns: 1fr;
+    }
+
+    .showroom__mode-switch {
+        width: 100%;
+    }
+
+    .showroom__mode-btn {
+        flex: 1;
+    }
+
+    .showroom__client-cta {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .showroom__client-cta button {
+        width: 100%;
+    }
+
+    .showroom__recruiter-stack {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .showroom {
+        padding: 18px 12px;
+        border-radius: var(--radius-lg);
+    }
+
+    .showroom__deliverables {
+        grid-template-columns: 1fr;
+    }
+
+    .showroom__browser-bar .hero__panel-dots,
+    .showroom__viewport-controls {
+        display: none;
+    }
+
+    .showroom__url-bar {
+        width: 100%;
+        justify-content: center;
+    }
+}
