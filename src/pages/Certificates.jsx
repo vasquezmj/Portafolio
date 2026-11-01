@@ -263,19 +263,28 @@ function Certificates() {
       </div>
 
       {/* Category Filter Bar */}
-      <div className="certificates-filters" role="tablist" aria-label="Filtrar certificados por categoría">
-        {CATEGORIES.map((cat) => (
-          <button
-            type="button"
-            key={cat}
-            role="tab"
-            aria-selected={selectedCategory === cat}
-            className={`demo-pill ${selectedCategory === cat ? 'demo-pill--active' : ''}`}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
+      <div className="certificates-filters" role="group" aria-label="Filtrar certificados por categoría">
+        {CATEGORIES.map((cat) => {
+          const count =
+            cat === 'Todos'
+              ? certificatesData.length
+              : certificatesData.filter((c) => c.category === cat).length;
+          const isActive = selectedCategory === cat;
+          return (
+            <button
+              type="button"
+              key={cat}
+              aria-pressed={isActive}
+              className={`cert-filter ${isActive ? 'cert-filter--active' : ''}`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              <span>{cat}</span>
+              <span className="cert-filter__count" aria-label={`${count} certificados`}>
+                {count}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       <div className="certificates-grid">
